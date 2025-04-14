@@ -1,0 +1,29 @@
+body {
+    background-color: #171717;
+}
+
+main {
+    padding: 20px 15px;
+    min-height: 500px;
+    margin-top: 55px;
+    margin-bottom: 28px;
+}
+
+body .form-con {
+    background-color: #2d2d2d;
+    border-radius: 25px;
+}
+
+form {
+    padding: 2rem;
+}
+
+form label {
+    color: #a5a5a5
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
