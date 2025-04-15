@@ -27,3 +27,11 @@ footer{
     bottom: 0;
     width: 100%;
 }
+
+.toast{
+    background-color: #0d6efd;
+    color: white;
+    right: 1rem;
+    z-index: 999;
+    bottom: 5rem;
+}
