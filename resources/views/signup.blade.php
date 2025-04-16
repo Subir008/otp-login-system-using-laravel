@@ -7,6 +7,11 @@
         <form action="signup" method="post">
             @csrf
             <div class="mb-3">
+                <label for="contact" class="form-label">Name</label>
+                <input type="tel" class="form-control" name="name" id="name" placeholder="Enter Your Name"
+                    value="{{ old('name') ?? '' }}">
+            </div>
+            <div class="mb-3">
                 <label for="contact" class="form-label">Contact Number</label>
                 <input type="tel" class="form-control" name="contact_no" id="contact" placeholder="Enter Your Contact"
                     value="{{ old('contact_no') ?? '' }}">

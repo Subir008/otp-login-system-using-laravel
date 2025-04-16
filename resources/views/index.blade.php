@@ -8,7 +8,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    
+
     <link rel="stylesheet" href="assets/css/style.css">
 
     <title>
@@ -35,6 +35,15 @@
                         </li>
                     </ul>
                     <ul class="navbar-nav me-2 mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Dropdown
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="{{ route('logout') }}">Log Out</a></li>
+                            </ul>
+                        </li>
                         <li class="nav-item">
                             <a href="{{ route('signup') }}" type="button" class="btn btn-outline-primary">Sign Up</a>
                             <a href="{{ route('login') }}" type="button" class="btn btn-outline-success">Login</a>
@@ -59,12 +68,12 @@
 
 
     <script src="assets/js/jquery-3.6.0.min.js"></script>
-        <!-- Js code -->
-        @section('js')
-        @show
+    <!-- Js code -->
+    @section('js')
+    @show
 
     <script src="assets/js/bootstrap.bundle.min.js"></script>
-    
+
 
 </body>
 
