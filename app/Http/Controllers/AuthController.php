@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Carbon\Traits\Timestamp;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
@@ -15,6 +17,7 @@ class AuthController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
+            'name' => 'required|min:4',
             'contact_no' => 'required|max:10|unique:users',
             'email' =>'required|unique:users',
             'password' => 'required'
@@ -37,7 +40,12 @@ class AuthController extends Controller
 
 
         $user = User::create([
-
+            'name' => $request->input('name'),
+            'contact_no' => $request->input('contact_no'),
+            'email' => $request->input('email'),
+            'password' => Hash::make( $request->input('password')),
         ]);
+
+        return redirect('login');
     }
 }
