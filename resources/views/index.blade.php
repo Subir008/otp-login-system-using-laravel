@@ -60,9 +60,9 @@
         @show
     </main>
 
-    <footer class="footer mt-auto py-3 bg-light">
-        <div class="container">
-            <span class="text-muted">Place sticky footer content here.</span>
+    <footer class="footer bg-dark mt-auto py-3 bg-light">
+        <div class="container text-center">
+            <span class="text-white ">OTP Login System  &cross; Subir </span>
         </div>
     </footer>
 
