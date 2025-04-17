@@ -69,8 +69,7 @@
 
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <!-- Js code -->
-    @section('js')
-    @show
+    <script src="assets/js/index.js"></script>
 
     <script src="assets/js/bootstrap.bundle.min.js"></script>
 
