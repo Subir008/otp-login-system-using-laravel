@@ -5,7 +5,7 @@
 @section('main')
     <div class="container form-con col-6 mt-5">
         <form>
-
+            @csrf
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Email address</label>
                 <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
