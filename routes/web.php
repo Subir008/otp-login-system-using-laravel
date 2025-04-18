@@ -19,6 +19,6 @@ Route::controller(AuthController::class)->group(function () {
 Route::controller(OtpAuthController::class)->group(function(){
     Route::get('otp-login', 'login')->name('otplogin');
     Route::post('otp-generate','generate')->name('generate');
-    Route::get('otp-verification'  , 'verification')->name('otpVerification');
+    Route::get('otp-verification/{user_id}'  , 'verification')->name('otpVerification');
     Route::post('otp-verify' , 'loginWithOtp')->name('otpVerify');
 });
