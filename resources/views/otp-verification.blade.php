@@ -14,7 +14,7 @@
             <div class="mb-3">
                 <input type="hidden" name="user_id" value="{{ $user_id }}">
                 <label for="otp" class="form-label">OTP</label>
-                <input type="number" class="form-control" id="otp" placeholder="Enter Your Otp">
+                <input type="number" class="form-control" id="otp" name="otp" placeholder="Enter Your Otp">
             </div>
             <div class="mb-3" style="direction: rtl">
                 <button type="submit" class="btn btn-success">Login</button>

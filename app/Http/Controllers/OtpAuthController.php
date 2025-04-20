@@ -85,7 +85,7 @@ class OtpAuthController extends Controller
             $user = User::whereId($request->user_id)->first();
 
             if($user){
-                $verificationCode->destroy($user->id);
+                $verificationCode->update(['expire_at' => $now]);
                 Auth::login($user);
                 return redirect('home');
             }

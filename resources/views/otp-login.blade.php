@@ -20,7 +20,7 @@
 
        <!-- Toaster for input warnings -->
        @if(session('error') )
-        <div class="toast align-items-center border-0 position-fixed " id="toast" role="alert" aria-live="assertive"
+        <div class="toast align-items-center border-0 position-fixed bg-danger" id="toast" role="alert" aria-live="assertive"
             aria-atomic="true">
             <div class="d-flex">
                 <div class="toast-body">
