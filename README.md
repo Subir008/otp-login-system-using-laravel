@@ -1,6 +1,6 @@
 ## Steps for Create Otp Login System
 
-* First we have created 3 seperated pages - Signup, Login, Otp login pages.
+* First we have created 3 seperated pages - Signup, Login, Otp login, Otp verification pages.
 
 * Next we added the routing path in the routes.
 
@@ -11,5 +11,7 @@
 * Next, we create one model and migration file for storing otp codes for verifications. When creating model, after giving model name if we pass -m flag with it it will generate the migration file with it. **php artisan make:model "Model name" -m**. In model file add the fillable data & in migration file add the columns and migrate it.
 
 
+* Next, after signup when we want to login with otp , after clicking on login with otp it will call one function generate(), these will first check the user email is register or not.
 
+ After that, it will call one function generateOtp() and pass the valid email given by the user.
 
