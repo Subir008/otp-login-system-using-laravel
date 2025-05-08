@@ -15,3 +15,9 @@
 
  After that, it will call one function generateOtp() and pass the valid email given by the user.
 
+ In generateOtp() function it will first check the email, then it will( check for the latest verificationCode if the user already requested for code if not then create one new verificationCode that will create one code for that user_id within the particular limited time and then return the code to the generate() function again otherwise return the old code again.  
+
+ * Next, when we recieve the otp and we enter it and click on submit, it will call the loginWithOtp() function to verify the otp.
+
+ In loginWithOtp() function, it will first take the otp and check in the db if the otp is existed for that particular user. If the otp is not match it will send the otp is incorrect and it will redirect to the previous page, if the otp is correct but it time was expired it will redirect to the previous page with error like OTP is expired. 
+
