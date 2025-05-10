@@ -49,6 +49,19 @@ class AuthController extends Controller
         return redirect('login');
     }
 
+    public function login(Request $request){
+        $validate = Validator::make(
+            $request->all(),
+            [
+                'email' => 'required|email' ,
+                'password' => 'required'
+            ]
+        );
+        if ($validate->fails()){
+            return back()->with('fail', 'No');
+        }
+    }
+
     public function logout(){
         return redirect('login');
     }

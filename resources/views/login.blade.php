@@ -4,15 +4,15 @@
 
 @section('main')
     <div class="container form-con col-6 mt-5">
-        <form>
+        <form method="post" action="{{ route('login') }}">
             @csrf
             <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
             </div>
             <div class=" mb-3">
-                <label for="inputPassword5" class="form-label">Password</label>
-                <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" name="password" class="form-control" aria-describedby="passwordHelpBlock">
             </div>
 
             <div class="mb-3" style="direction: rtl">
