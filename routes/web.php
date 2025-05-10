@@ -12,6 +12,7 @@ Route::view('home' , 'home')->name('home');
 
 Route::controller(AuthController::class)->group(function () {
     Route::post('signup' , 'signup')->name('signup');
+    Route::post('login' , 'login')->name('login');
     Route::get('logout', 'logout')->name('logout');
 
 });
