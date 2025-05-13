@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
+    // User signup process
     public function signup(Request $request){
         $user = new User();
 
@@ -38,7 +39,7 @@ class AuthController extends Controller
             return back()->withInput();
         }
 
-
+        // Create new user
         $user = User::create([
             'name' => $request->input('name'),
             'contact_no' => $request->input('contact_no'),
@@ -50,16 +51,24 @@ class AuthController extends Controller
     }
 
     public function login(Request $request){
-        $validate = Validator::make(
+
+        // Data validation
+        $validate =  Validator::make(
             $request->all(),
             [
                 'email' => 'required|email' ,
-                'password' => 'required'
+                'password' => 'required|min:5'
             ]
         );
-        if ($validate->fails()){
-            return back()->with('fail', 'No');
+
+        if($validate->fails()){
+            return redirect('login')
+                ->withInput()
+                ->withErrors($validate);
         }
+
+
+
     }
 
     public function logout(){
