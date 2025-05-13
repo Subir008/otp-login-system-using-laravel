@@ -21,3 +21,5 @@
 
  In loginWithOtp() function, it will first take the otp and check in the db if the otp is existed for that particular user. If the otp is not match it will send the otp is incorrect and it will redirect to the previous page, if the otp is correct but it time was expired it will redirect to the previous page with error like OTP is expired. 
 
+
+ For showing any error message for the input field we can use **@error('name of the field') Error message @enderror**
