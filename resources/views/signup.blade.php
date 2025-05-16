@@ -26,7 +26,7 @@
                 <input type="password" id="password" name="password" class="form-control"
                     aria-describedby="passwordHelpBlock">
                 <div id="passwordHelpBlock" class="form-text">
-                    Your password must be 8-20 characters long, contain letters and numbers, and must not contain
+                    Your password must be 5-20 characters long, contain letters and numbers, and must not contain
                     spaces, special characters, or emoji.
                 </div>
             </div>
@@ -37,7 +37,7 @@
 
     <!-- Toaster for input warnings -->
     @if(session('contact') || session('email') || session('password'))
-        <div class="toast align-items-center border-0 position-fixed " id="toast" role="alert" aria-live="assertive"
+        <div class="toast align-items-center border-0 position-fixed bg-danger " id="toast" role="alert" aria-live="assertive"
             aria-atomic="true">
             <div class="d-flex">
                 <div class="toast-body">
