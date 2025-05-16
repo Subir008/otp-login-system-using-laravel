@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Carbon\Traits\Timestamp;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Session;
 
 class AuthController extends Controller
 {
@@ -65,13 +67,21 @@ class AuthController extends Controller
             return redirect('login')
                 ->withInput()
                 ->withErrors($validate);
+        }else if($validate->passes()){
+            if(Auth::attempt(['email' => $request->email , 'password' => $request->password])){
+                $request->session()->put('login','loggedin');
+                return redirect('home')
+                    ->with('success', 'Login Successfull');
+            }else{
+                return redirect('login')
+                        ->with('fail', 'Wrong Credentials');
+            }
         }
-
-
 
     }
 
     public function logout(){
+        Session::pull('login');
         return redirect('login');
     }
 
