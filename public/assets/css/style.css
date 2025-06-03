@@ -35,3 +35,19 @@ footer{
     z-index: 999;
     bottom: 5rem;
 }
+
+/* Mail */
+.mail-body{
+    background-color: #f6f6f6;
+}
+
+.outer-container{
+    margin: 1rem;
+    padding: 1.5rem;
+}
+
+.outer-container .inner-container{
+    margin: 2rem;
+    padding: 1.5rem;
+    /* width: 75%; */
+}

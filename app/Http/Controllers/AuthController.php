@@ -23,7 +23,7 @@ class AuthController extends Controller
             'name' => 'required|min:4',
             'contact_no' => 'required|max:10|unique:users',
             'email' =>'required|unique:users',
-            'password' => 'required'
+            'password' => 'required|min:5'
         ]);
 
         if($validator->fails()){
@@ -59,7 +59,7 @@ class AuthController extends Controller
             $request->all(),
             [
                 'email' => 'required|email' ,
-                'password' => 'required|min:5'
+                'password' => 'required'
             ]
         );
 
@@ -69,7 +69,9 @@ class AuthController extends Controller
                 ->withErrors($validate);
         }else if($validate->passes()){
             if(Auth::attempt(['email' => $request->email , 'password' => $request->password])){
+                $log_user = User::where('email' , $request->email)->first();
                 $request->session()->put('login','loggedin');
+                Auth::login($log_user);
                 return redirect('home')
                     ->with('success', 'Login Successfull');
             }else{

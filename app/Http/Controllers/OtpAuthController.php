@@ -31,9 +31,15 @@ class OtpAuthController extends Controller
         # Generate Otp
         $verificationCode = $this->generateOtp($request->email);
 
-        $successMsg = "Your OTP is : " . $verificationCode->otp ;
-        # Return Otp
-        return redirect()->route('otpVerification', ['user_id' => $verificationCode->user_id])->with('success', $successMsg);
+        # Send otp through mail
+        app(MailController::class)->send_mail($request->email , $verificationCode->otp);
+
+        $successMsg = "Your OTP have been sent to the registered mail. ";
+
+        # Return Success Message after the mail send
+        return redirect()
+            ->route('otpVerification', ['user_id' => $verificationCode->user_id])
+            ->with('success', $successMsg);
 
     }
 
@@ -86,13 +92,12 @@ class OtpAuthController extends Controller
 
             if($user){
                 $verificationCode->update(['expire_at' => $now]);
+                $request->session()->put('login','loggedin');
                 Auth::login($user);
                 return redirect('home');
             }
 
             return redirect()->route('otplogin')->with('error' , 'Wrong OTP !!!!!!');
-
-
     }
 
 }
