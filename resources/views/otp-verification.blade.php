@@ -7,9 +7,11 @@
         <form action="{{ route('otpVerify') }}" method="post">
             @csrf
             @if (session('success'))
-                <div class="alert alert-success" role="alert">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
                     {{ session('success')}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
+                
             @endif
             <div class="mb-3">
                 <input type="hidden" name="user_id" value="{{ $user_id }}">
