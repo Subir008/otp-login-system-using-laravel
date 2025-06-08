@@ -11,11 +11,12 @@ use Illuminate\Support\Facades\Validator;
 
 class OtpAuthController extends Controller
 {
-    //
+    //Otp login page redirect
     public function login(){
         return view('otp-login');
     }
 
+    // 
    public function generate(Request $request){
         # Data Validate
         $validate = Validator::make(
@@ -43,6 +44,7 @@ class OtpAuthController extends Controller
 
     }
 
+    // Create the New OTP
     public function generateOtp ($email){
         $user = User::where('email' , $email)->first();
         
@@ -63,12 +65,14 @@ class OtpAuthController extends Controller
         return $code;
     }
 
+    // Otp Verification page redirect
     public function verification($user_id){
         return view('otp-verification')->with([
             'user_id' => $user_id
         ]);
     }
 
+    // Verify the Otp and Login Based on Otp
     public function loginWithOtp(Request  $request){
         Validator::make(
             $request->all(),

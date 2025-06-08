@@ -23,7 +23,7 @@
 
 ___
 
-## Steps for sending otp through mail
+# Steps for sending otp through mail
 
 * First, for mail sending is to set the mail configuration in the *.env** file. <br>
 i.e., MAIL_MAILER , MAIL_HOST , MAIL_PORT , MAIL_USERNAME , MAIL_PASSWORD , MAIL_ENCRYPTION ,
@@ -53,7 +53,9 @@ Once after generating the mailable class the directory will get be visible if it
 <br>
 After getting all the data store the data in variables and pass the variables to the mailable class with the help of **send()** of **Mail class**.
 <br>
-**Mail::to($to)->send(new FirstMail($subject , $comment))**
+
+        Mail::to($to)->send(new FirstMail($subject , $comment))
+
     <ul>
         <li>
             Within **to()** have to pass the **reciever mail address**.
@@ -80,5 +82,15 @@ After getting all the data store the data in variables and pass the variables to
     </li>
     </ul>
 
+### <u>Note-</u>
+* For showing any error message for the input field we can use **@error('name of the field') Error message @enderror**
 
- For showing any error message for the input field we can use **@error('name of the field') Error message @enderror**
+* For calling one function from one controller to another controller have to use the function **app()** and pass the controller name with the app and then call the required function.
+    
+        app(Controller::class)->Function_name()
+
+* For redirecting pages to any specific if the user hit any unknown url then redirect back to the desired page use the Routing function **fallback()** and in action pass the required function
+
+        Route::fallback(function(){
+            //code
+        });  

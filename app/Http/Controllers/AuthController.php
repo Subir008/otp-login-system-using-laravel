@@ -12,6 +12,17 @@ use Session;
 
 class AuthController extends Controller
 {
+
+    // Sign up page redirect
+    public function signup_pg(){
+        return view('signup');
+    }
+
+    // Login page redirect
+    public function login_pg(){
+        return view('login');
+    } 
+
     // User signup process
     public function signup(Request $request){
         $user = new User();
@@ -82,10 +93,16 @@ class AuthController extends Controller
 
     }
 
+    // Logout functionality
     public function logout(){
         Auth::logout();
         Session::pull('login');
         return redirect('login');
+    }
+
+    // Home page redirect
+    public function home(){
+        return view('home');
     }
 
 }
